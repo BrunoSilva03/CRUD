@@ -1,11 +1,65 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'Super Comic';
+    src: url('fontes/Super\ Comic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
+@media screen and (max-width: 600px) {
+    header {
+        background: #42d608;
+        font-size: 12px;
+    }
+}
+
+/*Galaxy Fold*/
+@media screen and (min-width: 280px) and (max-width: 653px) {
+    header {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px){
+    header {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    header {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+        font-size: 20px;
+    }
+}
+
+header {
+    background-color: #42d608;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    font-family: 'Super Comic';
+    color: white;
+}
+
+/*
 header {
     display: flex;
     justify-content: center;
@@ -14,4 +68,28 @@ header {
     color: white;
     height: 90px;
     font-size: 20px;
+    font-family: 'Super Comic';
+}
+*/
+
+
+
+
+
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #42d608;
+    color: white;
+    height: 40px;
+    margin: auto;
+    
+    /*Essas 4 linhas fazem o padding(rodapé) ficar posicionado no final da página*/
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
 }
