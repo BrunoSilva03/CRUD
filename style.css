@@ -18,6 +18,10 @@
         background: #42d608;
         font-size: 12px;
     }
+
+    #textoInicial {
+       font-size: 12px; 
+    }
 }
 
 /*Galaxy Fold*/
@@ -25,28 +29,43 @@
     header {
         font-size: 10px;
     }
+
+    #textoInicial {
+        padding: 3px;
+    }
+
+   
 }
 
 @media screen and (min-width: 600px) and (max-width: 768px){
     header {
         font-size: 20px;
     }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
+    #textoInicial {
+        font-size: 15px;
+    }
 
+   
 }
 
 @media screen and (min-width: 993px) and (max-width: 1200px) {
     header {
         font-size: 20px;
     }
+
+
 }
 
 @media screen and (min-width: 1200px) {
     header {
         font-size: 20px;
     }
+
+   
 }
 
 header {
@@ -57,24 +76,51 @@ header {
     height: 90px;
     font-family: 'Super Comic';
     color: white;
+}
+
+
+
+#textoInicial {
+    font-family: 'Super Comic';
+    text-align: center;
+    margin-top: 20px;
 }
 
 /*
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #42d608;
-    color: white;
-    height: 90px;
-    font-size: 20px;
-    font-family: 'Super Comic';
+button {
+    border: none;
+    background-color: transparent;
+    margin-left: 1450px;
+    margin-top:    
 }
 */
 
+button {
+    border: none;
+    background-color: transparent;
+}
 
+/*
+#container-botao {
+    display: flex;
+    justify-content: right;
+    align-items: end;
+    height: 77vh;
+    background: gray;
+}
+*/
 
+#container {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    height: 80vh;
+}
 
+#button-mais {
+    order: 1;
+    align-self: end;
+}
 
 
 
