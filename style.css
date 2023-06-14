@@ -13,24 +13,8 @@
     box-sizing: border-box;
 }
 
-@media screen and (max-width: 600px) {
-    header {
-        background: #42d608;
-        font-size: 12px;
-    }
-
-    #textoInicial {
-       font-size: 12px; 
-    }
-
-    #button-mais {
-        position: fixed;
-        top: 85%;
-        left: 100%;
-    }
-}
-
 /*Galaxy Fold*/
+
 @media screen and (min-width: 280px) and (max-width: 653px) {
     header {
         font-size: 10px;
@@ -38,6 +22,13 @@
 
     #textoInicial {
         padding: 3px;
+    }
+
+    #formulario {
+        padding: 5px;
+        width: 200px !important;
+        
+        
     }
 
     #button-mais {
@@ -48,10 +39,47 @@
    
 }
 
+
+/* 6 primeiros  + Galaxy Fold*/
+@media screen and (max-width: 600px) {
+    header {
+        background: #42d608;
+        font-size: 12px;
+    }
+
+    #textoInicial {
+       font-size: 12px; 
+    }
+
+    #formulario {
+        padding: 50px !important;
+        width: 300px !important;
+
+        
+        left: 12% !important;
+        
+
+
+        
+
+    }
+
+    #button-mais {
+        position: fixed;
+        top: 85%;
+        left: 100%;
+    }
+}
+
+
+
+
+/*
 @media screen and (min-width: 600px) and (max-width: 768px){
     header {
         font-size: 20px;
     }
+    
 
     #button-mais {
         top: 85%;
@@ -65,6 +93,19 @@
 @media screen and (min-width: 768px) and (max-width: 992px) {
     #textoInicial {
         font-size: 15px;
+    }
+
+    #formulario {
+        padding: 70px;
+        width: 600px;
+        top: 20%;
+        left: 13%;
+        font-weight: bolder;
+        font-size: 2em;
+    }
+
+    input {
+        font-size: 2rem;
     }
 
     #button-mais {
@@ -102,8 +143,16 @@
     
     }
 
+    #formulario {
+        padding: 70px;
+        width: 600px;
+        top: 20%;
+        left: 30%;
+    }
    
 }
+*/
+
 
 header {
     background-color: #42d608;
@@ -128,9 +177,26 @@ header {
 #container {
     display: flex;
     flex-direction: column;
-    align-content: flex-end;
     height: 80vh;
 }
+
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Super Comic';
+    border-radius: 10px;
+
+    position: fixed;
+    background: rgb(207, 203, 203);
+    box-shadow: 3px 3px 15px black;
+    margin-top: 20px;
+
+}
+
 
 #button-mais {
     position: fixed;
