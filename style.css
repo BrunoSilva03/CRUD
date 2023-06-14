@@ -22,6 +22,12 @@
     #textoInicial {
        font-size: 12px; 
     }
+
+    #button-mais {
+        position: fixed;
+        top: 85%;
+        left: 100%;
+    }
 }
 
 /*Galaxy Fold*/
@@ -34,6 +40,11 @@
         padding: 3px;
     }
 
+    #button-mais {
+        top: 85%;
+        left: 81%;
+    }
+
    
 }
 
@@ -42,6 +53,13 @@
         font-size: 20px;
     }
 
+    #button-mais {
+        top: 85%;
+        left: 89%;
+    }
+
+   
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -49,12 +67,25 @@
         font-size: 15px;
     }
 
+    #button-mais {
+        top: 85%;
+        left: 90%;
+    }
+
    
 }
+
+
 
 @media screen and (min-width: 993px) and (max-width: 1200px) {
     header {
         font-size: 20px;
+    }
+
+    #button-mais {
+        top: 81%;
+        left: 90%;
+        
     }
 
 
@@ -63,6 +94,12 @@
 @media screen and (min-width: 1200px) {
     header {
         font-size: 20px;
+    }
+
+    #button-mais {
+        top: 85%;
+        left: 93%;
+    
     }
 
    
@@ -86,29 +123,7 @@ header {
     margin-top: 20px;
 }
 
-/*
-button {
-    border: none;
-    background-color: transparent;
-    margin-left: 1450px;
-    margin-top:    
-}
-*/
 
-button {
-    border: none;
-    background-color: transparent;
-}
-
-/*
-#container-botao {
-    display: flex;
-    justify-content: right;
-    align-items: end;
-    height: 77vh;
-    background: gray;
-}
-*/
 
 #container {
     display: flex;
@@ -118,9 +133,21 @@ button {
 }
 
 #button-mais {
-    order: 1;
-    align-self: end;
+    position: fixed;
+    border: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 100px;
+    background-color: transparent;
+    color: transparent;
 }
+
+#button-mais:hover {
+    background: #3ab907;
+}
+
+
+
 
 
 
