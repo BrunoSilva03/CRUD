@@ -15,7 +15,7 @@
 
 /*Galaxy Fold*/
 
-@media screen and (min-width: 280px) and (max-width: 653px) {
+@media  screen and (min-width: 280px) and (max-width: 653px) {
     header {
         font-size: 10px;
     }
@@ -58,10 +58,6 @@
         
         left: 12% !important;
         
-
-
-        
-
     }
 
     #button-mais {
@@ -74,11 +70,14 @@
 
 
 
-/*
+
 @media screen and (min-width: 600px) and (max-width: 768px){
     header {
         font-size: 20px;
+        
     }
+
+    
     
 
     #button-mais {
@@ -87,12 +86,16 @@
     }
 
    
+   
 
 }
 
+/* Ipad Air, Ipad Mini, Surface Pro 7*/
 @media screen and (min-width: 768px) and (max-width: 992px) {
     #textoInicial {
-        font-size: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 3px;
     }
 
     #formulario {
@@ -108,6 +111,8 @@
         font-size: 2rem;
     }
 
+    
+
     #button-mais {
         top: 85%;
         left: 90%;
@@ -121,6 +126,27 @@
 @media screen and (min-width: 993px) and (max-width: 1200px) {
     header {
         font-size: 20px;
+        
+    }
+
+    #formulario {
+        padding: 50px !important;
+        width: 400px !important;
+        left: 30% !important;
+
+        font-size: 2em;
+        font-weight: bold;
+      
+       
+        
+    }
+
+    input {
+        font-size: .8em;
+    }
+
+    #txtdata {
+        font-size: 1em;
     }
 
     #button-mais {
@@ -137,6 +163,10 @@
         font-size: 20px;
     }
 
+    p#textoInicial {
+       font-size: 2em;
+    }
+
     #button-mais {
         top: 85%;
         left: 93%;
@@ -147,11 +177,23 @@
         padding: 70px;
         width: 600px;
         top: 20%;
-        left: 30%;
+        left: 27%;
+
+        font-size: 2em;
+        font-weight: bold;
+
+    }
+
+    input {
+        font-size: 1em;
+    }
+
+    #txtdata {
+        font-size: 1.5em;
     }
    
 }
-*/
+
 
 
 header {
