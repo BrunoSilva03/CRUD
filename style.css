@@ -41,6 +41,8 @@
         
     }
 
+   
+
     #botoes-formulario {
         margin-top: 20px;
     }
@@ -50,7 +52,7 @@
         color: white;
         padding: 5px;
         border-radius: 5px;
-    
+        font-size: .7rem;
        
     }
 
@@ -59,6 +61,7 @@
         color: white;
         padding: 5px;
         border-radius: 5px;
+        font-size: .7rem;
         
     }
 
@@ -99,6 +102,18 @@
         width: 200px !important;
         
         
+    }
+
+    input {
+        font-size: .6rem;
+    }
+
+    #button-cancelar {
+        font-size: .5rem;
+    }
+
+    #button-confirmar {
+        font-size: .5rem;
     }
 
     p#botoes-formulario {
@@ -212,7 +227,8 @@
     }
 
     input {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        
     }
 
     #button-cancelar {
@@ -415,6 +431,11 @@ header {
     box-shadow: 3px 3px 15px black;
     margin-top: 20px;
 
+}
+
+input {
+    font-family: 'Super Comic';
+    font-weight: lighter
 }
 
 #button-cancelar {

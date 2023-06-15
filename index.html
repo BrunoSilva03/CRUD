@@ -17,14 +17,14 @@
         <div id="container">
 
             
-                <div id="formu" >
+                <div id="formu" hidden>
                     <form action="script.js" id="formulario" type="hidden">
                         <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa"><br>
                         <label for="txtdata">Data: </label><input type="date" id="txtdata">
                         <br>
                         <label for="txthorario">Horário: </label><input type="datetime"
                         id="txthorario">
-                        <p id="botoes-formulario"><input type="button" value="Cancelar" id="button-cancelar"> <input type="submit" value="Confirmar" id="button-confirmar"></p>
+                        <p id="botoes-formulario"><input type="button" value="Cancelar" id="button-cancelar" onclick="cancelar()"> <input type="submit" value="Confirmar" id="button-confirmar"></p>
                     </form>
                 </div>
 
