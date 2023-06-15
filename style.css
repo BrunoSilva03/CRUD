@@ -13,31 +13,12 @@
     box-sizing: border-box;
 }
 
-/*Galaxy Fold*/
 
-@media  screen and (min-width: 280px) and (max-width: 653px) {
-    header {
-        font-size: 10px;
-    }
 
-    #textoInicial {
-        padding: 3px;
-    }
 
-    #formulario {
-        padding: 5px;
-        width: 200px !important;
-        
-        
-    }
 
-    #button-mais {
-        top: 85%;
-        left: 81%;
-    }
 
-   
-}
+
 
 
 /* 6 primeiros  + Galaxy Fold*/
@@ -60,11 +41,77 @@
         
     }
 
+    section.conteudo {
+        width: 300px;
+        margin-left: 10%;
+        font-size: .7rem;
+
+        
+       
+    }
+
+    section.feito {
+        width: 300px;
+        margin-left: 10%;
+        font-size: .7rem;
+    }
+
     #button-mais {
         position: fixed;
         top: 85%;
         left: 100%;
     }
+}
+
+/*Galaxy Fold*/
+
+@media  screen and (max-width: 280px) {
+    header {
+        font-size: .6rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    #textoInicial {
+        padding: 3px;
+    }
+
+    #formulario {
+        padding: 5px;
+        width: 200px !important;
+        
+        
+    }
+
+    section.conteudo {
+        width: 200px !important;
+    }
+
+    section.feito {
+        width: 200px !important;
+    }
+
+    #button-mais {
+        top: 85%;
+        left: 81%;
+    }
+
+   
+}
+
+
+
+
+/* Surface Duo */
+@media screen and (min-width: 500px) and (max-width: 540px){
+    section.conteudo {
+        margin-left: 23%;
+    }
+
+    section.feito {
+        margin-left: 23%;
+    }
+
 }
 
 
@@ -86,6 +133,19 @@
         left: 20%;
     }
 
+    
+    section.conteudo {
+        width: 400px;
+        margin-left: 15%;
+        
+    }
+
+    section.feito {
+        width: 400px;
+        margin-left: 15%;
+    }
+    
+
     #button-mais {
         top: 85%;
         left: 89%;
@@ -95,6 +155,8 @@
    
 
 }
+
+
 
 /* Ipad Air, Ipad Mini, Surface Pro 7*/
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -115,6 +177,17 @@
 
     input {
         font-size: 2rem;
+    }
+
+    section.conteudo {
+        width: 400px;
+        margin-left: 25%;
+        
+    }
+
+    section.feito {
+        width: 400px;
+        margin-left: 25%;
     }
 
     
@@ -155,6 +228,16 @@
         font-size: 1em;
     }
 
+   
+    section.conteudo {
+        margin-left: 19%;
+        
+    }
+
+    section.feito {
+        margin-left: 19%;
+    }
+
     #button-mais {
         top: 81%;
         left: 90%;
@@ -163,6 +246,8 @@
 
 
 }
+
+
 
 @media screen and (min-width: 1200px) {
     header {
@@ -195,6 +280,16 @@
     }
 
     #txtdata {
+        font-size: 1.5em;
+    }
+
+    section.conteudo {
+        margin-left: 31%;
+        font-size: 1.5em;
+    }
+
+    section.feito {
+        margin-left: 31%;
         font-size: 1.5em;
     }
    
@@ -243,6 +338,35 @@ header {
     box-shadow: 3px 3px 15px black;
     margin-top: 20px;
 
+}
+
+section.conteudo {
+    background: rgb(217, 215, 215);
+    
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 3px solid black;
+
+    font-family: 'Super Comic';
+    text-align: center;
+    max-width: 600px;
+    
+}
+
+section.feito {
+    background: rgb(93, 231, 86);
+    
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 3px solid black;
+
+    font-family: 'Super Comic';
+    text-decoration: line-through;
+    color: gray;
+    text-align: center;
+    max-width: 600px;
 }
 
 
