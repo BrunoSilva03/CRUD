@@ -18,13 +18,13 @@
 
             
                 <div id="formu" hidden>
-                    <form action="script.js" id="formulario" type="hidden">
-                        <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa"><br>
+                    <form action="script.js" id="formulario" type="hidden" method="GET">
+                        <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa" autocomplete="off"><br>
                         <label for="txtdata">Data: </label><input type="date" id="txtdata">
                         <br>
                         <label for="txthorario">Horário: </label><input type="datetime"
-                        id="txthorario">
-                        <p id="botoes-formulario"><input type="button" value="Cancelar" id="button-cancelar" onclick="cancelar()"> <input type="submit" value="Confirmar" id="button-confirmar"></p>
+                        id="txthorario" autocomplete="off">
+                        <p id="botoes-formulario"><input type="button" value="Cancelar" id="button-cancelar" onclick="cancelar()"> <input type="button" value="Confirmar" id="button-confirmar" onclick="confirmar()"></p>
                     </form>
                 </div>
 
