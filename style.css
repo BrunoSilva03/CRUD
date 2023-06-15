@@ -78,7 +78,13 @@
     }
 
     
-    
+    #formulario {
+        padding: 50px;
+        width: 400px;
+
+        
+        left: 20%;
+    }
 
     #button-mais {
         top: 85%;

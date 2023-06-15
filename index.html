@@ -16,14 +16,17 @@
     <main>
         <div id="container">
 
-            <form action="script.js" id="formulario" type="hidden">
-                <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa"><br>
-                <label for="txtdata">Data: </label><input type="date" id="txtdata">
-                <br>
-                <label for="txthorario">Horário: </label><input type="datetime" 
-                id="txthorario">
-
-            </form>
+            
+                <div id="formu" hidden>
+                    <form action="script.js" id="formulario" type="hidden">
+                        <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa"><br>
+                        <label for="txtdata">Data: </label><input type="date" id="txtdata">
+                        <br>
+                        <label for="txthorario">Horário: </label><input type="datetime"
+                        id="txthorario">
+                    </form>
+                </div>
+            
 
 
             <p id="textoInicial">Não há tarefas no momento, clique em "+" para Adicionar uma tarefa.</p>
