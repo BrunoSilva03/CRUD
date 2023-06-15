@@ -17,33 +17,30 @@
         <div id="container">
 
             
-                <div id="formu" hidden>
+                <div id="formu" >
                     <form action="script.js" id="formulario" type="hidden">
                         <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa"><br>
                         <label for="txtdata">Data: </label><input type="date" id="txtdata">
                         <br>
                         <label for="txthorario">Horário: </label><input type="datetime"
                         id="txthorario">
+                        <p id="botoes-formulario"><input type="button" value="Cancelar" id="button-cancelar"> <input type="submit" value="Confirmar" id="button-confirmar"></p>
                     </form>
                 </div>
 
-                <section class="conteudo">
-                    <p>Tarefa: tal tal tal;</p>
-                    <p>Data: tal tal tal</p>
-                    <p>Horário: tal tal tal</p>
+                <section class="conteudo" hidden>
+                    
                 </section>
 
-                <section class="feito">
-                    <p>Tarefa: tal tal tal;</p>
-                    <p>Data: tal tal tal</p>
-                    <p>Horário: tal tal tal</p>
+                <section class="feito" hidden>
+                   
                 </section>
             
 
 
             <p id="textoInicial">Não há tarefas no momento, clique em "+" para Adicionar uma tarefa.</p>
             
-                <button id="button-mais">
+                <button id="button-mais" onclick="abrirFormulario()">
                     <img src="imagens/icone-mais-transparente-oficial-50px-50px.png" alt="">
                 </button>
         </div>
