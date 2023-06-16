@@ -23,29 +23,30 @@ function focarHorario() {
 
 
 function abrirFormulario() {
-    window.document.getElementById('textoInicial').hidden = true;
     window.document.getElementById('button-mais').hidden = true;
     window.document.getElementById('formu').hidden = false;
 }
 
+function limparInputs() {
+    window.document.getElementById('txttarefa').value = '';
+    window.document.getElementById('txtdata').value = '';
+    window.document.getElementById('txthorario').value = '';
+}
 
 function cancelar() {
     
     window.document.getElementById('formu').hidden = true;
     window.document.getElementById('button-mais').hidden = false;
-    window.document.getElementById('txttarefa').value = '';
-    window.document.getElementById('txtdata').value = '';
-    window.document.getElementById('txthorario').value = '';
+    limparInputs();
     focarTarefa();
     focarData();
     focarHorario();
 
-    if(qtdTarefas > 0) {
-        window.document.getElementById('textoInicial').hidden = true;
-    } else {
-        window.document.getElementById('textoInicial').hidden = false;
-    }
+    verificaTextoInicial();
+    
 }
+
+
 
 
 function confirmar() {
@@ -53,6 +54,9 @@ function confirmar() {
     window.document.getElementById('formu').hidden = true;
     adicionarTarefa();
     window.document.getElementById('button-mais').hidden = false;
+    limparInputs();
+    verificaTextoInicial();
+    verificaFooter();
 }
 
 function validarCampos() {
@@ -77,25 +81,48 @@ function validarCampos() {
 function adicionarTarefa() {
     let resultado = document.getElementById('areaLista');
     let newTarefa
+    qtdTarefas++;
+    contador++;
+
+    let dataTarefaPadraoBr = dataTarefa.split('-').reverse().join('/');
 
     newTarefa = `
-    <div id="icone">
-        <i class="mdi mdi-circle-outline"></i>
-    </div>
-    <div class="tarefa">
-        <div class="titulo-tarefa">
-            <p>${nomeTarefa}</p>
+    <section class="conteudo"
+        <div id="icone">
+            <i class="mdi mdi-circle-outline"></i>
         </div>
-        <div class="data-tarefa">
-            <p>${dataTarefa}</p>
+        <div class="tarefa-${contador}">
+            <div class="titulo-tarefa-${contador}">
+                <p>${nomeTarefa}</p>
+            </div>
+            <div class="data-tarefa-${contador}">
+                <p>${dataTarefaPadraoBr}</p>
+            </div>
+            <div class="horario-tarefa-${contador}">
+                <p>${horarioTarefa}</p>
+            </div>
         </div>
-        <div class="horario-tarefa">
-            <p>${horarioTarefa}</p>
-        </div>
-    </div>
+    </section>
     `
 
-    resultado.innerHTML = newTarefa;
+    resultado.innerHTML += newTarefa;
 
+    
 
+}
+
+function verificaTextoInicial() {
+    if(qtdTarefas > 0) {
+        window.document.getElementById('textoInicial').hidden = true;
+    } else {
+        window.document.getElementById('textoInicial').hidden = false;
+    }
+}
+
+function verificaFooter() {
+    if(qtdTarefas >=4) {
+        window.document.getElementById('footer').style.backgroundColor = "#42d60898";
+    } else {
+        window.document.getElementById('footer').style.backgroundColor = "#42d608";
+    }
 }

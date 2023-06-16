@@ -553,6 +553,7 @@ footer {
     color: white;
     height: 40px;
     margin: auto;
+    transition: 0.3s;
     
     /*Essas 4 linhas fazem o padding(rodapé) ficar posicionado no final da página*/
     bottom: 0;
