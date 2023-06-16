@@ -16,7 +16,6 @@ function cancelar() {
 
 
 function confirmar() {
-    alert('Você confirmou');
     nomeTarefa = document.getElementById('txttarefa').value;
     dataTarefa = document.getElementById('txtdata').value;
     horarioTarefa = document.getElementById('txthorario').value;

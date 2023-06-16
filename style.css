@@ -66,12 +66,16 @@
     }
 
     section.conteudo {
+        padding: 25px;
+
         width: 300px;
         margin-left: 10%;
         font-size: .7rem;
     }
 
     section.feito {
+        padding: 25px;
+
         width: 300px;
         margin-left: 10%;
         font-size: .7rem;
@@ -186,12 +190,14 @@
 
     
     section.conteudo {
+        padding: 50px;
         width: 400px;
         margin-left: 15%;
         
     }
 
     section.feito {
+        padding: 50px;
         width: 400px;
         margin-left: 15%;
     }
@@ -247,12 +253,14 @@
     }
 
     section.conteudo {
+        padding: 50px;
         width: 400px;
         margin-left: 25%;
         
     }
 
     section.feito {
+        padding: 50px;
         width: 400px;
         margin-left: 25%;
     }
@@ -309,11 +317,13 @@
 
    
     section.conteudo {
+        padding: 50px;
         margin-left: 19%;
         
     }
 
     section.feito {
+        padding: 50px;
         margin-left: 19%;
     }
 
@@ -377,11 +387,13 @@
     }
 
     section.conteudo {
+        padding: 50px;
         margin-left: 31%;
         font-size: 1.5em;
     }
 
     section.feito {
+        padding: 50px;
         margin-left: 31%;
         font-size: 1.5em;
     }
@@ -460,9 +472,11 @@ input {
 }
 
 section.conteudo {
-    background: rgb(217, 215, 215);
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
     
-    padding: 50px;
+    background: rgb(217, 215, 215);
     margin-top: 20px;
     border-radius: 20px;
     border: 3px solid black;
@@ -474,20 +488,37 @@ section.conteudo {
 }
 
 section.feito {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    
+
     background: rgb(93, 231, 86);
     
-    padding: 50px;
     margin-top: 20px;
     border-radius: 20px;
     border: 3px solid black;
 
     font-family: 'Super Comic';
-    text-decoration: line-through;
+    text-decoration: line-through 2.5px black;
     color: gray;
     text-align: center;
     max-width: 600px;
 }
 
+i {
+    font-size: 2em;
+    text-align: left;
+    
+}
+
+i.mdi-circle-outline {
+    
+}
+
+i.mdi-check-circle {
+    color: green;
+}
 
 #button-mais {
     position: fixed;
