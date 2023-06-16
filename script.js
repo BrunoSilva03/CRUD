@@ -1,6 +1,8 @@
 let inputTarefa = document.getElementById('txttarefa');
 let inputData = document.getElementById('txtdata');
 let inputHorario = document.getElementById('txthorario');
+let contador = 0;
+let qtdTarefas = 0;
 
 inputTarefa.addEventListener('focus', focarTarefa);
 inputData.addEventListener('focus', focarData);
@@ -37,11 +39,20 @@ function cancelar() {
     focarTarefa();
     focarData();
     focarHorario();
+
+    if(qtdTarefas > 0) {
+        window.document.getElementById('textoInicial').hidden = true;
+    } else {
+        window.document.getElementById('textoInicial').hidden = false;
+    }
 }
 
 
 function confirmar() {
     validarCampos();
+    window.document.getElementById('formu').hidden = true;
+    adicionarTarefa();
+    window.document.getElementById('button-mais').hidden = false;
 }
 
 function validarCampos() {
@@ -61,4 +72,30 @@ function validarCampos() {
         alert('Você precisa informar o horário da tarefa!');
         inputHorario.style.backgroundColor = 'red';
     }
+}
+
+function adicionarTarefa() {
+    let resultado = document.getElementById('areaLista');
+    let newTarefa
+
+    newTarefa = `
+    <div id="icone">
+        <i class="mdi mdi-circle-outline"></i>
+    </div>
+    <div class="tarefa">
+        <div class="titulo-tarefa">
+            <p>${nomeTarefa}</p>
+        </div>
+        <div class="data-tarefa">
+            <p>${dataTarefa}</p>
+        </div>
+        <div class="horario-tarefa">
+            <p>${horarioTarefa}</p>
+        </div>
+    </div>
+    `
+
+    resultado.innerHTML = newTarefa;
+
+
 }
