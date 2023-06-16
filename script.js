@@ -130,6 +130,8 @@ function alterarTarefa(idTarefa) {
 function excluirTarefa(idTarefa) {
     var tarefa = window.document.getElementById(idTarefa);
     tarefa.remove();
+    qtdTarefas--;
+    verificaTextoInicial();
 }
 
 function verificaTextoInicial() {
