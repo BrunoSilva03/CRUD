@@ -94,7 +94,7 @@ function adicionarTarefa() {
     let dataTarefaPadraoBr = dataTarefa.split('-').reverse().join('/');
 
     newTarefa = `
-    <section class="conteudo"
+    <section class="conteudo" id="${contador}">
         <div id="icone">
             <i class="mdi mdi-circle-outline"></i>
         </div>
@@ -109,8 +109,8 @@ function adicionarTarefa() {
                 <p>${horarioTarefa}</p>
             </div>
             <p class="botoes-tarefa">
-                <input type="button" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
-                <input type="button" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete"></i>
+                <input type="button" onclick="alterarTarefa(${contador}))" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
+                <input type="button" onclick="excluirTarefa(${contador})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${contador})"></i>
             </p>
         </div>
     </section>
@@ -120,6 +120,16 @@ function adicionarTarefa() {
 
     
 
+}
+
+
+function alterarTarefa(idTarefa) {
+
+}
+
+function excluirTarefa(idTarefa) {
+    var tarefa = window.document.getElementById(idTarefa);
+    tarefa.remove();
 }
 
 function verificaTextoInicial() {
