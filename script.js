@@ -3,6 +3,7 @@ let inputData = document.getElementById('txtdata');
 let inputHorario = document.getElementById('txthorario');
 let contador = 0;
 let qtdTarefas = 0;
+let validado = false;
 
 inputTarefa.addEventListener('focus', focarTarefa);
 inputData.addEventListener('focus', focarData);
@@ -50,13 +51,17 @@ function cancelar() {
 
 
 function confirmar() {
+
     validarCampos();
-    window.document.getElementById('formu').hidden = true;
-    adicionarTarefa();
-    window.document.getElementById('button-mais').hidden = false;
-    limparInputs();
-    verificaTextoInicial();
-    verificaFooter();
+    if(validado) {
+
+        window.document.getElementById('formu').hidden = true;
+        adicionarTarefa();
+        window.document.getElementById('button-mais').hidden = false;
+        limparInputs();
+        verificaTextoInicial();
+        verificaFooter();
+    }
 }
 
 function validarCampos() {
@@ -75,6 +80,8 @@ function validarCampos() {
     } else if (horarioTarefa == '') {
         alert('Você precisa informar o horário da tarefa!');
         inputHorario.style.backgroundColor = 'red';
+    } else {
+        validado = true;
     }
 }
 
