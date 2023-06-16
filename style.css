@@ -29,19 +29,19 @@
     }
 
     #textoInicial {
-       font-size: 12px; 
+        font-size: 12px;
     }
 
     #formulario {
         padding: 50px !important;
         width: 300px !important;
 
-        
+
         left: 12% !important;
-        
+
     }
 
-   
+
 
     #botoes-formulario {
         margin-top: 20px;
@@ -53,7 +53,7 @@
         padding: 5px;
         border-radius: 5px;
         font-size: .7rem;
-       
+
     }
 
     #button-confirmar {
@@ -62,7 +62,7 @@
         padding: 5px;
         border-radius: 5px;
         font-size: .7rem;
-        
+
     }
 
     section.conteudo {
@@ -70,7 +70,7 @@
 
         width: 300px;
         margin-left: 10%;
-        font-size: .7rem;
+        font-size: 1rem;
     }
 
     section.feito {
@@ -78,8 +78,9 @@
 
         width: 300px;
         margin-left: 10%;
-        font-size: .7rem;
+        font-size: 1rem;
     }
+
 
     #button-mais {
         position: fixed;
@@ -90,7 +91,7 @@
 
 /*Galaxy Fold*/
 
-@media  screen and (max-width: 280px) {
+@media screen and (max-width: 280px) {
     header {
         font-size: .6rem;
         text-align: center;
@@ -104,8 +105,8 @@
     #formulario {
         padding: 5px;
         width: 200px !important;
-        
-        
+
+
     }
 
     input {
@@ -126,10 +127,20 @@
 
     section.conteudo {
         width: 200px !important;
+        font-size: .7rem;
+    }
+
+    input.botao-tarefa-update {
+        font-size: .5rem;
+    }
+
+    input.botao-tarefa-delete {
+        font-size: .5rem;
     }
 
     section.feito {
         width: 200px !important;
+        font-size: .7rem;
     }
 
     #button-mais {
@@ -137,14 +148,14 @@
         left: 81%;
     }
 
-   
+
 }
 
 
 
 
 /* Surface Duo */
-@media screen and (min-width: 500px) and (max-width: 540px){
+@media screen and (min-width: 500px) and (max-width: 540px) {
     section.conteudo {
         margin-left: 23%;
     }
@@ -159,18 +170,18 @@
 
 
 
-@media screen and (min-width: 600px) and (max-width: 768px){
+@media screen and (min-width: 600px) and (max-width: 768px) {
     header {
         font-size: 20px;
-        
+
     }
 
-    
+
     #formulario {
         padding: 50px;
         width: 400px;
 
-        
+
         left: 20%;
     }
 
@@ -186,14 +197,14 @@
     #button-confirmar {
         padding: 5px;
         border-radius: 5px;
-    }   
+    }
 
-    
+
     section.conteudo {
         padding: 50px;
         width: 400px;
         margin-left: 15%;
-        
+
     }
 
     section.feito {
@@ -201,15 +212,15 @@
         width: 400px;
         margin-left: 15%;
     }
-    
+
 
     #button-mais {
         top: 85%;
         left: 89%;
     }
 
-   
-   
+
+
 
 }
 
@@ -234,7 +245,7 @@
 
     input {
         font-size: 1.5rem;
-        
+
     }
 
     #button-cancelar {
@@ -256,23 +267,25 @@
         padding: 50px;
         width: 400px;
         margin-left: 25%;
-        
+        font-size: 1.3rem;
+
     }
 
     section.feito {
         padding: 50px;
         width: 400px;
         margin-left: 25%;
+        font-size: 1.3rem;
     }
 
-    
+
 
     #button-mais {
         top: 85%;
         left: 90%;
     }
 
-   
+
 }
 
 
@@ -280,7 +293,7 @@
 @media screen and (min-width: 993px) and (max-width: 1200px) {
     header {
         font-size: 20px;
-        
+
     }
 
     #formulario {
@@ -290,7 +303,7 @@
 
         font-size: 1.5em;
         font-weight: bold;
-      
+
     }
 
     input {
@@ -315,22 +328,23 @@
         border-radius: 5px;
     }
 
-   
+
     section.conteudo {
         padding: 50px;
         margin-left: 19%;
-        
+        font-size: 1.3rem;
     }
 
     section.feito {
         padding: 50px;
         margin-left: 19%;
+        font-size: 1.3rem;
     }
 
     #button-mais {
         top: 81%;
         left: 90%;
-        
+
     }
 
 
@@ -344,13 +358,13 @@
     }
 
     p#textoInicial {
-       font-size: 2em;
+        font-size: 2em;
     }
 
     #button-mais {
         top: 85%;
         left: 93%;
-    
+
     }
 
     #formulario {
@@ -389,7 +403,7 @@
     section.conteudo {
         padding: 50px;
         margin-left: 31%;
-        font-size: 1.5em;
+        font-size: 1.9em;
     }
 
     section.feito {
@@ -397,7 +411,15 @@
         margin-left: 31%;
         font-size: 1.5em;
     }
-   
+
+    input.botao-tarefa-update {
+        font-size: 1.5rem;
+    }
+
+    input.botao-tarefa-delete {
+        font-size: 1.5rem;
+    }
+
 }
 
 
@@ -454,7 +476,7 @@ input {
     background: red;
     color: white;
     box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.565);
-   
+
 }
 
 #button-cancelar:hover {
@@ -464,7 +486,7 @@ input {
 #button-confirmar {
     background: #42d608;
     color: white;
-    box-shadow: 3px 3px 9px  rgba(0, 0, 0, 0.565);
+    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.565);
 }
 
 #button-confirmar:hover {
@@ -477,10 +499,10 @@ input {
 }
 
 section.conteudo {
-    display: flex; 
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    
+
     background: rgb(217, 215, 215);
     margin-top: 20px;
     border-radius: 20px;
@@ -489,17 +511,17 @@ section.conteudo {
     font-family: 'Super Comic';
     text-align: center;
     max-width: 600px;
-    
+
 }
 
 section.feito {
-    display: flex; 
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    
+
 
     background: rgb(93, 231, 86);
-    
+
     margin-top: 20px;
     border-radius: 20px;
     border: 3px solid black;
@@ -514,7 +536,8 @@ section.feito {
 i {
     font-size: 2em;
     text-align: left;
-    
+    transition: color .5s linear;
+
 }
 
 i.mdi-circle-outline {
@@ -526,21 +549,54 @@ i.mdi-check-circle {
     font-size: 2.5rem;
 }
 
+i.mdi-update {
+    color: rgb(2, 185, 2);
+}
+
+i.mdi-update:hover {
+    color: rgb(2, 87, 2);
+}
+
+
+i.mdi-delete {
+    color: red;
+}
+
+i.mdi-delete:hover {
+    color: rgb(164, 3, 3);
+}
+
+p.botoes-tarefa {
+    display: flex;
+    align-items: center;
+}
+
+
 .botao-tarefa-update {
-    background: green; 
+    background: rgb(2, 185, 2);
     font-size: .9rem;
-     border: none; 
-     border-radius: 6px;
-     padding: 2px;
-     
-    }
+    border: none;
+    border-radius: 6px;
+    padding: 2px;
+
+}
+
+.botao-tarefa-update:hover {
+    background: rgb(2, 87, 2);
+}
+
+
 
 .botao-tarefa-delete {
-    background: red;
+    background: rgb(220, 1, 1);
     font-size: .9rem;
-     border: none; 
-     border-radius: 6px;
-     padding: 2px;
+    border: none;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.botao-tarefa-delete:hover {
+    background: rgb(164, 3, 3);
 }
 
 div#areaLista {
@@ -576,7 +632,7 @@ footer {
     height: 40px;
     margin: auto;
     transition: 0.3s;
-    
+
     /*Essas 4 linhas fazem o padding(rodapé) ficar posicionado no final da página*/
     bottom: 0;
     left: 0;
