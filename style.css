@@ -526,6 +526,22 @@ i.mdi-check-circle {
     font-size: 2.5rem;
 }
 
+.botao-tarefa-update {
+    background: green; 
+    font-size: .9rem;
+     border: none; 
+     border-radius: 6px;
+     padding: 2px;
+     
+    }
+
+.botao-tarefa-delete {
+    background: red;
+    font-size: .9rem;
+     border: none; 
+     border-radius: 6px;
+     padding: 2px;
+}
 
 div#areaLista {
     padding-bottom: 30px;

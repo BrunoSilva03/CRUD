@@ -108,6 +108,10 @@ function adicionarTarefa() {
             <div class="horario-tarefa-${contador}">
                 <p>${horarioTarefa}</p>
             </div>
+            <p class="botoes-tarefa">
+                <input type="button" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
+                <input type="button" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete"></i>
+            </p>
         </div>
     </section>
     `
