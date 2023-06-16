@@ -471,6 +471,11 @@ input {
     background: #36aa08;
 }
 
+
+input {
+    transition: background 1.5s linear;
+}
+
 section.conteudo {
     display: flex; 
     justify-content: space-around;
