@@ -513,11 +513,12 @@ i {
 }
 
 i.mdi-circle-outline {
-    
+    font-size: 2.5rem;
 }
 
 i.mdi-check-circle {
     color: green;
+    font-size: 2.5rem;
 }
 
 #button-mais {
