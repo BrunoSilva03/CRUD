@@ -109,7 +109,7 @@ function adicionarTarefa() {
                 <p>${horarioTarefa}</p>
             </div>
             <p class="botoes-tarefa">
-                <input type="button" onclick="alterarTarefa(${contador}))" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
+                <input type="button" onclick="alterarTarefa(${contador})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
                 <input type="button" onclick="excluirTarefa(${contador})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${contador})"></i>
             </p>
         </div>
