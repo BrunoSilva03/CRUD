@@ -134,6 +134,8 @@ function excluirTarefa(idTarefa) {
     verificaTextoInicial();
 }
 
+ // Terceiro
+
 
 function verificaTextoInicial() {
     if(qtdTarefas > 0) {
