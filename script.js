@@ -139,6 +139,8 @@ function marcarTarefa(idTarefa) {
         var icone = document.getElementById('icone_' + idTarefa);
         icone.classList.remove('mdi-circle-outline');
         icone.classList.add('mdi-check-circle');
+
+        item.parentNode.appendChild(item);
     } else {
         item.classList.remove('feito');
         item.classList.add('conteudo');
@@ -146,6 +148,7 @@ function marcarTarefa(idTarefa) {
         var icone = document.getElementById('icone_' + idTarefa);
         icone.classList.remove('mdi-check-circle');
         icone.classList.add('mdi-circle-outline');
+
     }
 }
 
