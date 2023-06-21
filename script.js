@@ -4,6 +4,7 @@ let inputHorario = document.getElementById('txthorario');
 let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
+let formPraUpdate = false;
 
 inputTarefa.addEventListener('focus', focarTarefa);
 inputData.addEventListener('focus', focarData);
@@ -56,7 +57,12 @@ function confirmar() {
     if(validado) {
 
         window.document.getElementById('formu').hidden = true;
-        adicionarTarefa();
+        if(formPraUpdate == false) {
+
+            adicionarTarefa();
+        } else {
+            darUpdate();
+        }
         window.document.getElementById('button-mais').hidden = false;
         limparInputs();
         verificaTextoInicial();
@@ -124,19 +130,57 @@ function adicionarTarefa() {
 
 
 function alterarTarefa(idTarefa) {
+    var itemNovaTarefa = document.getElementById(idTarefa);
+    formPraUpdate = true;
+    abrirFormulario();
+
+}
+
+function darUpdate() {
+    let resultado = document.getElementById('areaLista');
+    novoNomeTarefa = window.document.getElementById('txttarefa').value;
+    novaDataTarefa = window.document.getElementById('txtdata').value;
+    novoHorarioTarefa = window.document.getElementById('txthorario').value;
+
+    let novaDataPadraoBr = novaDataTarefa.split('-').reverse().join('/');
+
+    let alteraTarefa = `
+    <section class="conteudo" id="${itemNovaTarefa}">
+        <div id="icone">
+            <i  id="icone_${itemNovaTarefa}" class="mdi mdi-circle-outline"  onclick="marcarTarefa(${itemNovaTarefa})"></i>
+        </div>
+        <div class="tarefa-${itemNovaTarefa}">
+            <div class="titulo-tarefa-${itemNovaTarefa}">
+                <p>${novoNomeTarefa}</p>
+            </div>
+            <div class="data-tarefa-${contador}">
+                <p>${novaDataPadraoBr}</p>
+            </div>
+            <div class="horario-tarefa-${contador}">
+                <p>${novoHorarioTarefa}</p>
+            </div>
+            <p class="botoes-tarefa">
+                <input type="button" onclick="alterarTarefa(${itemNovaTarefa})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
+                <input type="button" onclick="excluirTarefa(${itemNovaTarefa})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${itemNovaTarefa})"></i>
+            </p>
+        </div>
+    </section>
+    `
+
+    resultado.innerHTML += alteraTarefa;
 
 }
 
 function marcarTarefa(idTarefa) {
     var item = document.getElementById(idTarefa);
-    var classe = item.getAttribute('class')
+    var icone = document.getElementById('icone_' + idTarefa);
+    var classe = item.getAttribute('class');
 
     if(classe == 'conteudo') {
 
         item.classList.remove('conteudo');
         item.classList.add('feito');
         
-        var icone = document.getElementById('icone_' + idTarefa);
         icone.classList.remove('mdi-circle-outline');
         icone.classList.add('mdi-check-circle');
 
@@ -145,7 +189,6 @@ function marcarTarefa(idTarefa) {
         item.classList.remove('feito');
         item.classList.add('conteudo');
 
-        var icone = document.getElementById('icone_' + idTarefa);
         icone.classList.remove('mdi-check-circle');
         icone.classList.add('mdi-circle-outline');
 
