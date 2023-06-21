@@ -96,7 +96,7 @@ function adicionarTarefa() {
     newTarefa = `
     <section class="conteudo" id="${contador}">
         <div id="icone">
-            <i class="mdi mdi-circle-outline"></i>
+            <i  id="icone_${contador}" class="mdi mdi-circle-outline"  onclick="marcarTarefa(${contador})"></i>
         </div>
         <div class="tarefa-${contador}">
             <div class="titulo-tarefa-${contador}">
@@ -127,14 +127,36 @@ function alterarTarefa(idTarefa) {
 
 }
 
+function marcarTarefa(idTarefa) {
+    var item = document.getElementById(idTarefa);
+    var classe = item.getAttribute('class')
+
+    if(classe == 'conteudo') {
+
+        item.classList.remove('conteudo');
+        item.classList.add('feito');
+        
+        var icone = document.getElementById('icone_' + idTarefa);
+        icone.classList.remove('mdi-circle-outline');
+        icone.classList.add('mdi-check-circle');
+    } else {
+        item.classList.remove('feito');
+        item.classList.add('conteudo');
+
+        var icone = document.getElementById('icone_' + idTarefa);
+        icone.classList.remove('mdi-check-circle');
+        icone.classList.add('mdi-circle-outline');
+    }
+}
+
 function excluirTarefa(idTarefa) {
     var tarefa = window.document.getElementById(idTarefa);
     tarefa.remove();
     qtdTarefas--;
     verificaTextoInicial();
+    verificaFooter();
 }
 
- // Terceiro
 
 
 function verificaTextoInicial() {
@@ -146,7 +168,7 @@ function verificaTextoInicial() {
 }
 
 function verificaFooter() {
-    if(qtdTarefas >=4) {
+    if(qtdTarefas >=3) {
         window.document.getElementById('footer').style.backgroundColor = "#42d60898";
     } else {
         window.document.getElementById('footer').style.backgroundColor = "#42d608";
