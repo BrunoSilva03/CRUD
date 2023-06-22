@@ -5,6 +5,11 @@ let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
 let formPraUpdate = false;
+/*
+var txttarefa = window.document.getElementById('txttarefa').value;
+var txtdata = window.document.getElementById('txtdata').value;
+var txthorario = window.document.getElementById('txthorario').value;
+*/
 
 inputTarefa.addEventListener('focus', focarTarefa);
 inputData.addEventListener('focus', focarData);
@@ -36,7 +41,7 @@ function limparInputs() {
 }
 
 function cancelar() {
-    
+
     window.document.getElementById('formu').hidden = true;
     window.document.getElementById('button-mais').hidden = false;
     limparInputs();
@@ -45,7 +50,7 @@ function cancelar() {
     focarHorario();
 
     verificaTextoInicial();
-    
+
 }
 
 
@@ -53,20 +58,31 @@ function cancelar() {
 
 function confirmar() {
 
-    validarCampos();
-    if(validado) {
+        validarCampos();
+        if (validado) {
 
-        window.document.getElementById('formu').hidden = true;
-        if(formPraUpdate == false) {
+            window.document.getElementById('formu').hidden = true;
 
             adicionarTarefa();
-        } else {
-            darUpdate();
+            window.document.getElementById('button-mais').hidden = false;
+            limparInputs();
+            verificaTextoInicial();
+            verificaFooter();
         }
-        window.document.getElementById('button-mais').hidden = false;
-        limparInputs();
-        verificaTextoInicial();
-        verificaFooter();
+
+}
+
+function confirmarPraUpdate(idTarefa) {
+    
+    var txttarefa = document.getElementById('txttarefa').value;
+    var txtdata = document.getElementById('txtdata').value;
+    var txthorario = document.getElementById('txthorario').value;
+    
+    if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
+        cancelar();
+    } else {
+        validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa);
+        darUpdate(idTarefa, txttarefa, txtdata, txthorario);
     }
 }
 
@@ -75,11 +91,11 @@ function validarCampos() {
     dataTarefa = document.getElementById('txtdata').value;
     horarioTarefa = document.getElementById('txthorario').value;
 
-    if(nomeTarefa == '') {
+    if (nomeTarefa == '') {
         alert('Você precisa informar o nome da tarefa!');
         inputTarefa.style.backgroundColor = "red";
-        
-    } else if(dataTarefa == '') {
+
+    } else if (dataTarefa == '') {
         alert('Você precisa informar a data da tarefa!');
         inputData.style.backgroundColor = 'red';
         inputData.style.color = 'white';
@@ -88,6 +104,37 @@ function validarCampos() {
         inputHorario.style.backgroundColor = 'red';
     } else {
         validado = true;
+    }
+}
+
+function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa) {
+
+    //Se tem tarefa
+    if(txttarefa != '') {
+
+        //Não tem data nem horário
+        if(txtdata == '' && txthorario == '') {
+            txtdata = `data_${idTarefa}`;
+            txthorario = `horario_${idTarefa}`;
+
+            //tem data mas não tem horário
+        } else if(txtdata != '' && txthorario == '') {
+            txthorario = `horario_${idTarefa}`;
+
+
+            //Não tem data, mas tem horário
+        }else if(txtdata == '' && txthorario != '') {
+            txtdata = `data_${idTarefa}`;
+        }
+
+        //Não tem tarefa mas tem data
+    } else if(txtdata != '') {
+        txttarefa = `nome_${idTarefa}`;
+
+        //Não tem horário
+        if(txthorario == '') {
+            txthorario = `horario_${idTarefa}`
+        }
     }
 }
 
@@ -106,13 +153,13 @@ function adicionarTarefa() {
         </div>
         <div class="tarefa-${contador}">
             <div class="titulo-tarefa-${contador}">
-                <p>${nomeTarefa}</p>
+                <p id="nome_${contador}">${nomeTarefa}</p>
             </div>
             <div class="data-tarefa-${contador}">
-                <p>${dataTarefaPadraoBr}</p>
+                <p id="data_${contador}">${dataTarefaPadraoBr}</p>
             </div>
             <div class="horario-tarefa-${contador}">
-                <p>${horarioTarefa}</p>
+                <p id="horario_${contador}">${horarioTarefa}</p>
             </div>
             <p class="botoes-tarefa">
                 <input type="button" onclick="alterarTarefa(${contador})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
@@ -124,50 +171,60 @@ function adicionarTarefa() {
 
     resultado.innerHTML += newTarefa;
 
-    
+
 
 }
 
 
-function alterarTarefa(idTarefa) {
-    var itemNovaTarefa = document.getElementById(idTarefa);
-    formPraUpdate = true;
-    abrirFormulario();
+function adicionarTarefaUpdate(idTarefa) {
+    var tarefaUpdate = document.getElementById('txttarefa').value;
+    var dataUpdate = document.getElementById('txtdata').value;
+    var horarioUpdate = document.getElementById('txthorario').value;
 
-}
+    var dataUptdPadraoBr = dataUpdate.split('-').reverse().join('/');
 
-function darUpdate() {
-    let resultado = document.getElementById('areaLista');
-    novoNomeTarefa = window.document.getElementById('txttarefa').value;
-    novaDataTarefa = window.document.getElementById('txtdata').value;
-    novoHorarioTarefa = window.document.getElementById('txthorario').value;
+    let resultadoUpdate = document.getElementById('areaLista');
+    let novaTarefaUpdate;
+    qtdTarefas++;
 
-    let novaDataPadraoBr = novaDataTarefa.split('-').reverse().join('/');
-
-    let alteraTarefa = `
-    <section class="conteudo" id="${itemNovaTarefa}">
+    novaTarefaUpdate = `
+    <section class="conteudo" id="${idTarefa}">
         <div id="icone">
-            <i  id="icone_${itemNovaTarefa}" class="mdi mdi-circle-outline"  onclick="marcarTarefa(${itemNovaTarefa})"></i>
+            <i  id="icone_${idTarefa}" class="mdi mdi-circle-outline"  onclick="marcarTarefa(${idTarefa})"></i>
         </div>
-        <div class="tarefa-${itemNovaTarefa}">
-            <div class="titulo-tarefa-${itemNovaTarefa}">
-                <p>${novoNomeTarefa}</p>
+        <div class="tarefa-${idTarefa}">
+            <div class="titulo-tarefa-${idTarefa}">
+                <p>${tarefaUpdate}</p>
             </div>
-            <div class="data-tarefa-${contador}">
-                <p>${novaDataPadraoBr}</p>
+            <div class="data-tarefa-${idTarefa}">
+                <p>${dataUptdPadraoBr}</p>
             </div>
-            <div class="horario-tarefa-${contador}">
-                <p>${novoHorarioTarefa}</p>
+            <div class="horario-tarefa-${idTarefa}">
+                <p>${horarioUpdate}</p>
             </div>
             <p class="botoes-tarefa">
-                <input type="button" onclick="alterarTarefa(${itemNovaTarefa})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
-                <input type="button" onclick="excluirTarefa(${itemNovaTarefa})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${itemNovaTarefa})"></i>
+                <input type="button" onclick="alterarTarefa(${idTarefa})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
+                <input type="button" onclick="excluirTarefa(${idTarefa})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${idTarefa})"></i>
             </p>
         </div>
     </section>
     `
 
-    resultado.innerHTML += alteraTarefa;
+    resultadoUpdate.innerHTML += novaTarefaUpdate;
+}
+
+function alterarTarefa(idTarefa) {
+    var itemNovaTarefa = document.getElementById(idTarefa);
+    formPraUpdate = true;
+    abrirFormulario();
+    confirmarPraUpdate(idTarefa);
+
+}
+
+function darUpdate(idTarefa) {
+
+    excluirTarefa(idTarefa);
+    //adicionarTarefaUpdate(idTarefa);
 
 }
 
@@ -176,11 +233,11 @@ function marcarTarefa(idTarefa) {
     var icone = document.getElementById('icone_' + idTarefa);
     var classe = item.getAttribute('class');
 
-    if(classe == 'conteudo') {
+    if (classe == 'conteudo') {
 
         item.classList.remove('conteudo');
         item.classList.add('feito');
-        
+
         icone.classList.remove('mdi-circle-outline');
         icone.classList.add('mdi-check-circle');
 
@@ -206,7 +263,7 @@ function excluirTarefa(idTarefa) {
 
 
 function verificaTextoInicial() {
-    if(qtdTarefas > 0) {
+    if (qtdTarefas > 0) {
         window.document.getElementById('textoInicial').hidden = true;
     } else {
         window.document.getElementById('textoInicial').hidden = false;
@@ -214,7 +271,7 @@ function verificaTextoInicial() {
 }
 
 function verificaFooter() {
-    if(qtdTarefas >=3) {
+    if (qtdTarefas >= 3) {
         window.document.getElementById('footer').style.backgroundColor = "#42d60898";
     } else {
         window.document.getElementById('footer').style.backgroundColor = "#42d608";
