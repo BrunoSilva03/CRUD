@@ -136,6 +136,8 @@ function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa) {
             txthorario = `horario_${idTarefa}`
         }
     }
+
+    //Mas uma vez
 }
 
 function adicionarTarefa() {
