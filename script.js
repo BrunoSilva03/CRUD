@@ -1,6 +1,7 @@
 let inputTarefa = document.getElementById('txttarefa');
 let inputData = document.getElementById('txtdata');
 let inputHorario = document.getElementById('txthorario');
+let btnConfirmar = document.getElementById('button-confirmar');
 let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
@@ -12,8 +13,28 @@ var txthorario = window.document.getElementById('txthorario').value;
 */
 
 inputTarefa.addEventListener('focus', focarTarefa);
+inputTarefa.addEventListener('keyup', function(event) {
+    //Se teclou ENTER (13)
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        inputData.focus();
+    }
+})
 inputData.addEventListener('focus', focarData);
+inputData.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        inputHorario.focus();
+    }
+})
 inputHorario.addEventListener('focus', focarHorario);
+inputHorario.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        btnConfirmar.click();
+    }
+})
+
 
 function focarTarefa() {
     inputTarefa.style.backgroundColor = "white";
@@ -32,6 +53,7 @@ function focarHorario() {
 function abrirFormulario() {
     window.document.getElementById('button-mais').hidden = true;
     window.document.getElementById('formu').hidden = false;
+    inputTarefa.focus();
 }
 
 function limparInputs() {
