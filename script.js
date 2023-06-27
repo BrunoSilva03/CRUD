@@ -241,7 +241,7 @@ function alterarTarefa(idTarefa) {
     var itemNovaTarefa = document.getElementById(idTarefa);
     formPraUpdate = true;
     abrirFormulario();
-    confirmarPraUpdate(idTarefa);
+    //confirmarPraUpdate(idTarefa);
 
 }
 
