@@ -1,11 +1,15 @@
 let inputTarefa = document.getElementById('txttarefa');
 let inputData = document.getElementById('txtdata');
 let inputHorario = document.getElementById('txthorario');
+let inputTarefaUpdate = document.getElementById('txttarefa-update');
+let inputDataUpdate = document.getElementById('txtdata-update');
+let inputHorarioUpdate = document.getElementById('txthorario-update');
 let btnConfirmar = document.getElementById('button-confirmar');
 let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
 let formPraUpdate = false;
+let idUpdate = null;
 /*
 var txttarefa = window.document.getElementById('txttarefa').value;
 var txtdata = window.document.getElementById('txtdata').value;
@@ -54,6 +58,12 @@ function abrirFormulario() {
     window.document.getElementById('button-mais').hidden = true;
     window.document.getElementById('formu').hidden = false;
     inputTarefa.focus();
+}
+
+function abrirFormularioPraUpdate() {
+    window.document.getElementById('button-mais').hidden = true;
+    window.document.getElementById('formu-update').hidden = false;
+    inputTarefaUpdate.focus();
 }
 
 function limparInputs() {
@@ -240,7 +250,8 @@ function adicionarTarefaUpdate(idTarefa) {
 function alterarTarefa(idTarefa) {
     var itemNovaTarefa = document.getElementById(idTarefa);
     formPraUpdate = true;
-    abrirFormulario();
+    idUpdate = idTarefa;
+    abrirFormularioPraUpdate();
     //confirmarPraUpdate(idTarefa);
 
 }

@@ -29,13 +29,13 @@
                     </form>
                 </div>
 
-                <div id="formu-update" >
+                <div id="formu-update" hidden>
                     <form action="script.js" id="formulario" type="hidden" method="GET">
-                        <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa" autocomplete="off"><br>
-                        <label for="txtdata">Data: </label><input type="date" id="txtdata">
+                        <label for="txttarefa">Tarefa: </label><input type="text" id="txttarefa-update" autocomplete="off"><br>
+                        <label for="txtdata">Data: </label><input type="date" id="txtdata-update">
                         <br>
                         <label for="txthorario">Horário: </label><input type="datetime"
-                        id="txthorario" autocomplete="off">
+                        id="txthorario-update" autocomplete="off">
                         <p id="botoes-formulario"><input type="button" value="Cancelar" id="button-cancelar" onclick="cancelar()"> <input type="button" value="Confirmar" id="button-confirmar" onclick="confirmarPraUpdate()"></p>
                     </form>
                 </div>
