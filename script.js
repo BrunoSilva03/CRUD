@@ -5,6 +5,7 @@ let inputTarefaUpdate = document.getElementById('txttarefa-update');
 let inputDataUpdate = document.getElementById('txtdata-update');
 let inputHorarioUpdate = document.getElementById('txthorario-update');
 let btnConfirmar = document.getElementById('button-confirmar');
+let btnConfirmarUpdate = document.getElementById('button-confirmar-update');
 let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
@@ -16,6 +17,7 @@ var txtdata = window.document.getElementById('txtdata').value;
 var txthorario = window.document.getElementById('txthorario').value;
 */
 
+//FORMULÁRIO DE INSERIR TAREFA
 inputTarefa.addEventListener('focus', focarTarefa);
 inputTarefa.addEventListener('keyup', function(event) {
     //Se teclou ENTER (13)
@@ -24,6 +26,16 @@ inputTarefa.addEventListener('keyup', function(event) {
         inputData.focus();
     }
 })
+
+//FORMULÁRIO PARA ALTERAR TAREFA;
+inputTarefaUpdate.addEventListener('focus', focarTarefaUpdate);
+inputTarefaUpdate.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        inputDataUpdate.focus();
+    }
+})
+
 inputData.addEventListener('focus', focarData);
 inputData.addEventListener('keyup', function(event) {
     if(event.keyCode === 13) {
@@ -31,6 +43,15 @@ inputData.addEventListener('keyup', function(event) {
         inputHorario.focus();
     }
 })
+
+inputDataUpdate.addEventListener('focus', focarDataUpdate);
+inputDataUpdate.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        inputHorarioUpdate.focus();
+    }
+})
+
 inputHorario.addEventListener('focus', focarHorario);
 inputHorario.addEventListener('keyup', function(event) {
     if(event.keyCode === 13) {
@@ -40,8 +61,21 @@ inputHorario.addEventListener('keyup', function(event) {
 })
 
 
+inputHorarioUpdate.addEventListener('focus', focarHorarioUpdate);
+inputHorarioUpdate.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        btnConfirmarUpdate.click();
+    }
+})
+
+
 function focarTarefa() {
     inputTarefa.style.backgroundColor = "white";
+}
+
+function focarTarefaUpdate() {
+    inputTarefaUpdate.style.backgroundColor = 'white';
 }
 
 function focarData() {
@@ -49,8 +83,17 @@ function focarData() {
     inputData.style.color = 'black';
 }
 
+function focarDataUpdate() {
+    inputDataUpdate.style.backgroundColor = 'white';
+    inputDataUpdate.style.backgroundColor = 'black';
+}
+
 function focarHorario() {
     inputHorario.style.backgroundColor = 'white';
+}
+
+function focarHorarioUpdate() {
+    inputHorarioUpdate.style.backgroundColor = 'white';
 }
 
 
@@ -70,6 +113,12 @@ function limparInputs() {
     window.document.getElementById('txttarefa').value = '';
     window.document.getElementById('txtdata').value = '';
     window.document.getElementById('txthorario').value = '';
+}
+
+function limparInputsUpdate() {
+    window.document.getElementById('txttarefa-update').value = '';
+    window.document.getElementById('txtdata-update').value = '';
+    window.document.getElementById('txthorario-update').value = '';
 }
 
 function cancelar() {
@@ -106,9 +155,10 @@ function confirmar() {
 
 function confirmarPraUpdate(idTarefa) {
     
-    var txttarefa = document.getElementById('txttarefa').value;
-    var txtdata = document.getElementById('txtdata').value;
-    var txthorario = document.getElementById('txthorario').value;
+    var txttarefa = document.getElementById('txttarefa-update').value;
+    var txtdata = document.getElementById('txtdata-update').value;
+    var txthorario = document.getElementById('txthorario-update').value;
+    
     
     if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
         cancelar();

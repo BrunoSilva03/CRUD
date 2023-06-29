@@ -65,6 +65,15 @@
 
     }
 
+    .button-confirmar {
+        background: #42d608;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: .7rem;
+
+    }
+
     section.conteudo {
         padding: 25px;
 
@@ -118,6 +127,10 @@
     }
 
     #button-confirmar {
+        font-size: .5rem;
+    }
+
+    .button-confirmar {
         font-size: .5rem;
     }
 
@@ -199,6 +212,11 @@
         border-radius: 5px;
     }
 
+    .button-confirmar {
+        padding: 5px;
+        border-radius: 5px;
+    }
+
 
     section.conteudo {
         padding: 50px;
@@ -255,6 +273,11 @@
     }
 
     #button-confirmar {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .button-confirmar {
         padding: 10px;
         border-radius: 10px;
     }
@@ -328,6 +351,11 @@
         border-radius: 5px;
     }
 
+    .button-confirmar {
+        padding: 5px;
+        border-radius: 5px;
+    }
+
 
     section.conteudo {
         padding: 50px;
@@ -396,6 +424,11 @@
     }
 
     #button-confirmar {
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .button-confirmar {
         padding: 5px;
         border-radius: 5px;
     }
@@ -489,7 +522,17 @@ input {
     box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.565);
 }
 
+.button-confirmar {
+    background: #42d608;
+    color: white;
+    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.565);
+}
+
 #button-confirmar:hover {
+    background: #36aa08;
+}
+
+.button-confirmar:hover {
     background: #36aa08;
 }
 
