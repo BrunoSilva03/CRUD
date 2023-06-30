@@ -85,7 +85,7 @@ function focarData() {
 
 function focarDataUpdate() {
     inputDataUpdate.style.backgroundColor = 'white';
-    inputDataUpdate.style.backgroundColor = 'black';
+    inputDataUpdate.style.color = 'black';
 }
 
 function focarHorario() {
@@ -123,12 +123,18 @@ function limparInputsUpdate() {
 
 function cancelar() {
 
+    
     window.document.getElementById('formu').hidden = true;
+    window.document.getElementById('formu-update').hidden = true;
     window.document.getElementById('button-mais').hidden = false;
     limparInputs();
+    limparInputsUpdate();
     focarTarefa();
+    focarTarefaUpdate();
     focarData();
+    focarDataUpdate();
     focarHorario();
+    focarHorarioUpdate();
 
     verificaTextoInicial();
 
