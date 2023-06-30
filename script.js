@@ -113,13 +113,11 @@ function limparInputs() {
     window.document.getElementById('txttarefa').value = '';
     window.document.getElementById('txtdata').value = '';
     window.document.getElementById('txthorario').value = '';
-}
-
-function limparInputsUpdate() {
     window.document.getElementById('txttarefa-update').value = '';
     window.document.getElementById('txtdata-update').value = '';
     window.document.getElementById('txthorario-update').value = '';
 }
+
 
 function cancelar() {
 
@@ -128,7 +126,6 @@ function cancelar() {
     window.document.getElementById('formu-update').hidden = true;
     window.document.getElementById('button-mais').hidden = false;
     limparInputs();
-    limparInputsUpdate();
     focarTarefa();
     focarTarefaUpdate();
     focarData();
@@ -159,7 +156,7 @@ function confirmar() {
 
 }
 
-function confirmarPraUpdate(idTarefa) {
+function confirmarPraUpdate() {
     
     var txttarefa = document.getElementById('txttarefa-update').value;
     var txtdata = document.getElementById('txtdata-update').value;
@@ -169,8 +166,8 @@ function confirmarPraUpdate(idTarefa) {
     if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
         cancelar();
     } else {
-        validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa);
-        darUpdate(idTarefa, txttarefa, txtdata, txthorario);
+        validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate);
+        darUpdate(idUpdate, txttarefa, txtdata, txthorario);
     }
 }
 
@@ -196,7 +193,7 @@ function validarCampos() {
 }
 
 function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa) {
-
+alert('entrou no validar campos pra update');
     //Se tem tarefa
     if(txttarefa != '') {
 
