@@ -192,7 +192,7 @@ function validarCampos() {
     }
 }
 
-//Revisar
+
 function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa) {
 alert('entrou no validar campos pra update');
     //Se tem tarefa
