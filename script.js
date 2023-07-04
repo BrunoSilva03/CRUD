@@ -184,6 +184,10 @@ function darUpdate(idUpdate, txttarefa, txtdata, txthorario) {
 
 function confirmarPraUpdate() {
     fecharFormularioUpdate();
+
+    /* MUITA COISA IMPORTANTE A SE FAZER */
+    limparInputs();
+
     var txttarefa = document.getElementById('txttarefa-update').value;
     var txtdata = document.getElementById('txtdata-update').value;
     var txthorario = document.getElementById('txthorario-update').value;
