@@ -6,9 +6,6 @@ let inputDataUpdate = document.getElementById('txtdata-update');
 let inputHorarioUpdate = document.getElementById('txthorario-update');
 let btnConfirmar = document.getElementById('button-confirmar');
 let btnConfirmarUpdate = document.getElementById('button-confirmar-update');
-let antigaTarefa;
-let antigaData;
-let antigoHorario;
 let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
@@ -185,28 +182,28 @@ function darUpdate(idUpdate, txttarefa, txtdata, txthorario) {
 function confirmarPraUpdate() {
     fecharFormularioUpdate();
 
-    /* MUITA COISA IMPORTANTE A SE FAZER */
-    limparInputs();
+   
 
     var txttarefa = document.getElementById('txttarefa-update').value;
     var txtdata = document.getElementById('txtdata-update').value;
     var txthorario = document.getElementById('txthorario-update').value;
     
-    
+    var tarefinha = document.querySelector(`#nome_${idUpdate}`).innerHTML;
+    var datinha = document.querySelector(`#data_${idUpdate}`).innerHTML;
+    var horarinho = document.querySelector(`#horario_${idUpdate}`).innerHTML;
     if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
         cancelar();
     } else {
-        copiarTask(idUpdate, txttarefa, txtdata, txthorario);
-        validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate);
+        
+        
+        let antigaTarefa = tarefinha;
+        let antigaData = datinha;
+        let antigoHorario = horarinho;
+        validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate, antigaTarefa, antigaData, antigoHorario);
         
     }
 }
 
-function copiarTask(idUpdate) {
-    antigaTarefa = nomeTarefa;
-    antigaData = dataTarefa;
-    antigoHorario = horarioTarefa;
-}
 
 function validarCampos() {
     nomeTarefa = document.getElementById('txttarefa').value;
@@ -230,7 +227,7 @@ function validarCampos() {
 }
 
 
-function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate) {
+function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate, antigaTarefa, antigaData, antigoHorario) {
     //Se tem tarefa
     if(txttarefa != '') {
 
