@@ -6,6 +6,9 @@ let inputDataUpdate = document.getElementById('txtdata-update');
 let inputHorarioUpdate = document.getElementById('txthorario-update');
 let btnConfirmar = document.getElementById('button-confirmar');
 let btnConfirmarUpdate = document.getElementById('button-confirmar-update');
+let antigaTarefa;
+let antigaData;
+let antigoHorario;
 let contador = 0;
 let qtdTarefas = 0;
 let validado = false;
@@ -189,14 +192,16 @@ function confirmarPraUpdate() {
     if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
         cancelar();
     } else {
-        copiarTask(idUpdate);
+        copiarTask(idUpdate, txttarefa, txtdata, txthorario);
         validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate);
         darUpdate(idUpdate, txttarefa, txtdata, txthorario);
     }
 }
 
 function copiarTask(idUpdate) {
-
+    antigaTarefa = nomeTarefa;
+    antigaData = dataTarefa;
+    antigoHorario = horarioTarefa;
 }
 
 function validarCampos() {
@@ -227,26 +232,26 @@ function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate) {
 
         //Não tem data nem horário
         if(txtdata == '' && txthorario == '') {
-            txtdata = `data_${idUpdate}`;
-            txthorario = `horario_${idUpdate}`;
+            txtdata = antigaData;
+            txthorario = antigoHorario;
 
             //tem data mas não tem horário
         } else if(txtdata != '' && txthorario == '') {
-            txthorario = `horario_${idUpdate}`;
+            txthorario = antigoHorario;
 
 
             //Não tem data, mas tem horário
         }else if(txtdata == '' && txthorario != '') {
-            txtdata = `data_${idUpdate}`;
+            txtdata = antigaData;
         }
 
         //Não tem tarefa mas tem data
     } else if(txtdata != '') {
-        txttarefa = `nome_${idUpdate}`;
+        txttarefa = antigaTarefa;
 
         //Não tem horário
         if(txthorario == '') {
-            txthorario = `horario_${idUpdate}`
+            txthorario = antigoHorario;
         }
     }
 
