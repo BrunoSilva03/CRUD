@@ -188,9 +188,11 @@ function confirmarPraUpdate() {
     var txtdata = document.getElementById('txtdata-update').value;
     var txthorario = document.getElementById('txthorario-update').value;
     
+    //CAPTURANDO O QUE ESTÁ ESCRITO DENTRO DOS PARÁGRAFOS !IMPORTANTE!!!!!
     var tarefinha = document.querySelector(`#nome_${idUpdate}`).innerHTML;
     var datinha = document.querySelector(`#data_${idUpdate}`).innerHTML;
     var horarinho = document.querySelector(`#horario_${idUpdate}`).innerHTML;
+
     if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
         cancelar();
     } else {
@@ -254,11 +256,15 @@ function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate, antiga
         if(txthorario == '') {
             txthorario = antigoHorario;
         }
+        //Não tem tarefa nem data mas tem horário
+    } else if(txthorario != '') {
+        txttarefa = antigaTarefa;
+        txtdata = antigaData;
     }
 
     darUpdate(idUpdate, txttarefa, txtdata, txthorario);
 
-    //Mais uma vez
+
 }
 
 function adicionarTarefa() {
