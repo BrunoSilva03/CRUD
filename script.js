@@ -109,6 +109,11 @@ function abrirFormularioPraUpdate() {
     inputTarefaUpdate.focus();
 }
 
+function fecharFormularioUpdate() {
+    window.document.getElementById('formu-update').hidden = true;
+    window.document.getElementById('button-mais').hidden = false;
+}
+
 function limparInputs() {
     window.document.getElementById('txttarefa').value = '';
     window.document.getElementById('txtdata').value = '';
@@ -156,8 +161,26 @@ function confirmar() {
 
 }
 
+function alterarTarefa(idTarefa) {
+    var itemNovaTarefa = document.getElementById(idTarefa);
+    formPraUpdate = true;
+    idUpdate = idTarefa;
+    abrirFormularioPraUpdate();
+    //confirmarPraUpdate(idTarefa);
+
+}
+
+function darUpdate(idUpdate, txttarefa, txtdata, txthorario) {
+
+    excluirTarefa(idUpdate);
+    qtdTarefas++;
+    verificaTextoInicial();
+    adicionarTarefaUpdate(idUpdate, txttarefa, txtdata, txthorario);
+
+}
+
 function confirmarPraUpdate() {
-    
+    fecharFormularioUpdate();
     var txttarefa = document.getElementById('txttarefa-update').value;
     var txtdata = document.getElementById('txtdata-update').value;
     var txthorario = document.getElementById('txthorario-update').value;
@@ -166,9 +189,14 @@ function confirmarPraUpdate() {
     if (txttarefa == '' && (txtdata == '' || txtdata == null)  && txthorario == '') {
         cancelar();
     } else {
+        copiarTask(idUpdate);
         validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate);
         darUpdate(idUpdate, txttarefa, txtdata, txthorario);
     }
+}
+
+function copiarTask(idUpdate) {
+
 }
 
 function validarCampos() {
@@ -193,37 +221,36 @@ function validarCampos() {
 }
 
 
-function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idTarefa) {
-alert('entrou no validar campos pra update');
+function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate) {
     //Se tem tarefa
     if(txttarefa != '') {
 
         //Não tem data nem horário
         if(txtdata == '' && txthorario == '') {
-            txtdata = `data_${idTarefa}`;
-            txthorario = `horario_${idTarefa}`;
+            txtdata = `data_${idUpdate}`;
+            txthorario = `horario_${idUpdate}`;
 
             //tem data mas não tem horário
         } else if(txtdata != '' && txthorario == '') {
-            txthorario = `horario_${idTarefa}`;
+            txthorario = `horario_${idUpdate}`;
 
 
             //Não tem data, mas tem horário
         }else if(txtdata == '' && txthorario != '') {
-            txtdata = `data_${idTarefa}`;
+            txtdata = `data_${idUpdate}`;
         }
 
         //Não tem tarefa mas tem data
     } else if(txtdata != '') {
-        txttarefa = `nome_${idTarefa}`;
+        txttarefa = `nome_${idUpdate}`;
 
         //Não tem horário
         if(txthorario == '') {
-            txthorario = `horario_${idTarefa}`
+            txthorario = `horario_${idUpdate}`
         }
     }
 
-    //Mas uma vez
+    //Mais uma vez
 }
 
 function adicionarTarefa() {
@@ -264,35 +291,36 @@ function adicionarTarefa() {
 }
 
 
-function adicionarTarefaUpdate(idTarefa) {
+function adicionarTarefaUpdate(idUpdate, txttarefa, txtdata, txthorario) {
+    /*
     var tarefaUpdate = document.getElementById('txttarefa').value;
     var dataUpdate = document.getElementById('txtdata').value;
     var horarioUpdate = document.getElementById('txthorario').value;
+    */
 
-    var dataUptdPadraoBr = dataUpdate.split('-').reverse().join('/');
+    var dataUptdPadraoBr = txtdata.split('-').reverse().join('/');
 
     let resultadoUpdate = document.getElementById('areaLista');
     let novaTarefaUpdate;
-    qtdTarefas++;
 
     novaTarefaUpdate = `
-    <section class="conteudo" id="${idTarefa}">
+    <section class="conteudo" id="${idUpdate}">
         <div id="icone">
-            <i  id="icone_${idTarefa}" class="mdi mdi-circle-outline"  onclick="marcarTarefa(${idTarefa})"></i>
+            <i  id="icone_${idUpdate}" class="mdi mdi-circle-outline"  onclick="marcarTarefa(${idUpdate})"></i>
         </div>
-        <div class="tarefa-${idTarefa}">
-            <div class="titulo-tarefa-${idTarefa}">
-                <p>${tarefaUpdate}</p>
+        <div class="tarefa-${idUpdate}">
+            <div class="titulo-tarefa-${idUpdate}">
+                <p id="nome_${idUpdate}">${txttarefa}</p>
             </div>
-            <div class="data-tarefa-${idTarefa}">
-                <p>${dataUptdPadraoBr}</p>
+            <div class="data-tarefa-${idUpdate}">
+                <p id="data_${idUpdate}">${dataUptdPadraoBr}</p>
             </div>
-            <div class="horario-tarefa-${idTarefa}">
-                <p>${horarioUpdate}</p>
+            <div class="horario-tarefa-${idUpdate}">
+                <p id="horario_${idUpdate}">${txthorario}</p>
             </div>
             <p class="botoes-tarefa">
-                <input type="button" onclick="alterarTarefa(${idTarefa})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
-                <input type="button" onclick="excluirTarefa(${idTarefa})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${idTarefa})"></i>
+                <input type="button" onclick="alterarTarefa(${idUpdate})" value="Alterar" class="botao-tarefa-update">  <i class="mdi mdi-update"></i>
+                <input type="button" onclick="excluirTarefa(${idUpdate})" value="Excluir" class="botao-tarefa-delete">  <i class="mdi mdi-delete" onclick="excluirTarefa(${idUpdate})"></i>
             </p>
         </div>
     </section>
@@ -301,21 +329,7 @@ function adicionarTarefaUpdate(idTarefa) {
     resultadoUpdate.innerHTML += novaTarefaUpdate;
 }
 
-function alterarTarefa(idTarefa) {
-    var itemNovaTarefa = document.getElementById(idTarefa);
-    formPraUpdate = true;
-    idUpdate = idTarefa;
-    abrirFormularioPraUpdate();
-    //confirmarPraUpdate(idTarefa);
 
-}
-
-function darUpdate(idTarefa) {
-
-    excluirTarefa(idTarefa);
-    //adicionarTarefaUpdate(idTarefa);
-
-}
 
 function marcarTarefa(idTarefa) {
     var item = document.getElementById(idTarefa);
