@@ -194,7 +194,7 @@ function confirmarPraUpdate() {
     } else {
         copiarTask(idUpdate, txttarefa, txtdata, txthorario);
         validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate);
-        darUpdate(idUpdate, txttarefa, txtdata, txthorario);
+        
     }
 }
 
@@ -254,6 +254,8 @@ function validarCamposPraUpdate(txttarefa, txtdata, txthorario, idUpdate) {
             txthorario = antigoHorario;
         }
     }
+
+    darUpdate(idUpdate, txttarefa, txtdata, txthorario);
 
     //Mais uma vez
 }
