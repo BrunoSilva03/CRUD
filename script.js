@@ -104,6 +104,7 @@ function abrirFormulario() {
 }
 
 function abrirFormularioPraUpdate() {
+    limparInputs();
     window.document.getElementById('button-mais').hidden = true;
     window.document.getElementById('formu-update').hidden = false;
     inputTarefaUpdate.focus();
