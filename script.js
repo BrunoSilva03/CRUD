@@ -342,6 +342,7 @@ function adicionarTarefaUpdate(idUpdate, txttarefa, txtdata, txthorario) {
     `
 
     resultadoUpdate.innerHTML += novaTarefaUpdate;
+    alert('Tarefa atualizada com Sucesso!!!');
 }
 
 
